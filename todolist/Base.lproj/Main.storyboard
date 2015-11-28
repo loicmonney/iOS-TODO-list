@@ -163,6 +163,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionField" destination="DjF-fN-GVT" id="1gh-OQ-ktI"/>
+                        <outlet property="saveButton" destination="xwo-9n-i71" id="ukx-Ra-cuE"/>
                         <outlet property="urgentToggle" destination="vXN-Ee-VrX" id="x04-jq-Fx7"/>
                     </connections>
                 </viewController>
