@@ -21,6 +21,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         descriptionField.delegate = self
         saveButton.enabled = false
+        NSLog("AddViewController#viewDidLoad")
     }
     
     // Save button pressed

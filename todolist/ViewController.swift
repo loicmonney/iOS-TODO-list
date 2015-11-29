@@ -28,6 +28,8 @@ class ViewController: UIViewController, UITableViewDelegate,  UITableViewDataSou
         self.taskView.delegate = self
         self.taskView.dataSource = self
         self.taskView.reloadData()
+        
+        NSLog("ViewController#viewDidLoad")
     }
     
     // open "Add task" view
