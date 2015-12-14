@@ -11,4 +11,6 @@ import Foundation
 protocol TaskContainer {
     
     func addTask(task: Task);
+    
+    func updateTask(index:Int, task:Task);
 }

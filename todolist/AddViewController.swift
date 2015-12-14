@@ -12,6 +12,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     // Tasks container
     var taskContainer : TaskContainer?
+    var taskToModifiy : Task?
+    var isUpdate : Bool = false
+    var indexUpdate : Int=0
     
     @IBOutlet weak var descriptionField: UITextField!
     @IBOutlet weak var urgentToggle: UISwitch!
@@ -21,6 +24,10 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         descriptionField.delegate = self
         saveButton.enabled = false
+        if(isUpdate){
+            descriptionField.text = taskToModifiy?.taskText
+            urgentToggle.on = (taskToModifiy?.urgent)!
+        }
         NSLog("AddViewController#viewDidLoad")
     }
     
@@ -28,8 +35,12 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBAction func save(sender: AnyObject) {
         let description : String = descriptionField.text!
         let urgent : Bool = urgentToggle.on
-        let task = Task(description: description, urgent: urgent)
-        taskContainer!.addTask(task)
+        let task = Task(taskText: description, urgent: urgent)
+        if(!isUpdate){
+            taskContainer!.addTask(task)
+        }else{
+            taskContainer!.updateTask(indexUpdate, task: task)
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
